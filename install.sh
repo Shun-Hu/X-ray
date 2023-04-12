@@ -4,8 +4,8 @@
 #	System Request:Debian 9+/Ubuntu 18.04+/Centos 7+
 #	Author:	huxuezhang
 #	Dscription: Xray onekey Management
-# 官网: www.52pojiee.com
-#====================================================
+#	https://: www.52pojiee.com
+#==================================================
 
 export PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 stty erase ^?
@@ -232,7 +232,7 @@ function basic_optimization() {
 }
 
 function domain_check() {
-  read -rp "请输入你的域名信息(eg: www.wulabing.com):" domain
+  read -rp "请输入你的域名信息(eg: www.huxuezhang.com):" domain
   domain_ip=$(curl -sm8 ipget.net/?ip="${domain}")
   print_ok "正在获取 IP 地址信息，请耐心等待"
   wgcfv4_status=$(curl -s4m8 https://www.cloudflare.com/cdn-cgi/trace -k | grep warp | cut -d= -f2)
@@ -554,16 +554,16 @@ function vless_xtls-rprx-direct_link() {
   DOMAIN=$(cat ${domain_tmp_dir}/domain)
 
   print_ok "URL 链接 (VLESS + TCP + TLS)"
-  print_ok "vless://$UUID@$DOMAIN:$PORT?security=tls&flow=$FLOW#TLS_wulabing-$DOMAIN"
+  print_ok "vless://$UUID@$DOMAIN:$PORT?security=tls&flow=$FLOW#${domain_ip}"
 
   print_ok "URL 链接 (VLESS + TCP + XTLS)"
-  print_ok "vless://$UUID@$DOMAIN:$PORT?security=xtls&flow=$FLOW#XTLS_wulabing-$DOMAIN"
+  print_ok "vless://$UUID@$DOMAIN:$PORT?security=xtls&flow=$FLOW#${domain_ip}"
   print_ok "-------------------------------------------------"
   print_ok "URL 二维码 (VLESS + TCP + TLS) （请在浏览器中访问）"
-  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=tls%26flow=$FLOW%23TLS_wulabing-$DOMAIN"
+  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=tls%26flow=$FLOW%23${domain_ip}"
 
   print_ok "URL 二维码 (VLESS + TCP + XTLS) （请在浏览器中访问）"
-  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=xtls%26flow=$FLOW%23XTLS_wulabing-$DOMAIN"
+  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=xtls%26flow=$FLOW%23${domain_ip}"
 }
 
 function vless_xtls-rprx-direct_information() {
@@ -610,22 +610,22 @@ function ws_link() {
   DOMAIN=$(cat ${domain_tmp_dir}/domain)
 
   print_ok "URL 链接 (VLESS + TCP + TLS)"
-  print_ok "vless://$UUID@$DOMAIN:$PORT?security=tls#TLS_wulabing-$DOMAIN"
+  print_ok "vless://$UUID@$DOMAIN:$PORT?security=tls#${domain_ip}"
 
   print_ok "URL 链接 (VLESS + TCP + XTLS)"
-  print_ok "vless://$UUID@$DOMAIN:$PORT?security=xtls&flow=$FLOW#XTLS_wulabing-$DOMAIN"
+  print_ok "vless://$UUID@$DOMAIN:$PORT?security=xtls&flow=$FLOW#${domain_ip}"
 
   print_ok "URL 链接 (VLESS + WebSocket + TLS)"
-  print_ok "vless://$UUID@$DOMAIN:$PORT?type=ws&security=tls&path=%2f${WS_PATH_WITHOUT_SLASH}%2f#WS_TLS_wulabing-$DOMAIN"
+  print_ok "vless://$UUID@$DOMAIN:$PORT?type=ws&security=tls&path=%2f${WS_PATH_WITHOUT_SLASH}%2f#${domain_ip}"
   print_ok "-------------------------------------------------"
   print_ok "URL 二维码 (VLESS + TCP + TLS) （请在浏览器中访问）"
-  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=tls%23TLS_wulabing-$DOMAIN"
+  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=tls%23${domain_ip}"
 
   print_ok "URL 二维码 (VLESS + TCP + XTLS) （请在浏览器中访问）"
-  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=xtls%26flow=$FLOW%23XTLS_wulabing-$DOMAIN"
+  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=xtls%26flow=$FLOW%23${domain_ip}"
 
   print_ok "URL 二维码 (VLESS + WebSocket + TLS) （请在浏览器中访问）"
-  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?type=ws%26security=tls%26path=%2f${WS_PATH_WITHOUT_SLASH}%2f%23WS_TLS_wulabing-$DOMAIN"
+  print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?type=ws%26security=tls%26path=%2f${WS_PATH_WITHOUT_SLASH}%2f%23${domain_ip}"
 }
 
 function basic_information() {
