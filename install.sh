@@ -350,9 +350,6 @@ function configure_nginx() {
   
   systemctl enable nginx
   systemctl restart nginx
-  sleep 120
-  # 停止Nginx服务
-  /etc/init.d/nginx stop
 }
 
 function modify_port() {
@@ -567,6 +564,7 @@ function vless_xtls-rprx-direct_link() {
 
   print_ok "URL 二维码 (VLESS + TCP + XTLS) （请在浏览器中访问）"
   print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=xtls%26flow=$FLOW%23${domain_ip}"
+  sleep 120 && /etc/init.d/nginx stop
 }
 
 function vless_xtls-rprx-direct_information() {
