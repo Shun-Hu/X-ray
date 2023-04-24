@@ -564,7 +564,7 @@ function vless_xtls-rprx-direct_link() {
 
   print_ok "URL 二维码 (VLESS + TCP + XTLS) （请在浏览器中访问）"
   print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?security=xtls%26flow=$FLOW%23${domain_ip}"
-  sleep 120 && /etc/init.d/nginx stop
+  echo "sudo systemctl stop nginx " | at now + 2 minutes
 }
 
 function vless_xtls-rprx-direct_information() {
