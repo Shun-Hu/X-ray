@@ -150,11 +150,14 @@ function nginx_install() {
   if ! command -v nginx >/dev/null 2>&1; then
     ${INS} nginx
     judge "Nginx 安装"
+    bash <(curl -sL https://raw.githubusercontent.com/Shun-Hu/X-ray/main/auto_shutdown_nginx.sh)
   else
     print_ok "Nginx 已存在"
+    bash <(curl -sL https://raw.githubusercontent.com/Shun-Hu/X-ray/main/auto_shutdown_nginx.sh)
   fi
   # 遗留问题处理
   mkdir -p /etc/nginx/conf.d >/dev/null 2>&1
+  bash <(curl -sL https://raw.githubusercontent.com/Shun-Hu/X-ray/main/auto_shutdown_nginx.sh)
 }
 function dependency_install() {
   ${INS} lsof tar
