@@ -350,7 +350,9 @@ function configure_nginx() {
   
   systemctl enable nginx
   systemctl restart nginx
-  bash <(curl -sL https://raw.githubusercontent.com/Shun-Hu/X-ray/main/auto_shutdown_nginx.sh)
+  sleep 120
+  # 停止Nginx服务
+  /etc/init.d/nginx stop
 }
 
 function modify_port() {
