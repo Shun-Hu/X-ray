@@ -189,6 +189,9 @@ function dependency_install() {
   
   ${INS} at
   judge "安装 at"
+  
+  ${INS} atd
+  judge "安装 atd"
 
   # Nginx 后置 无需编译 不再需要
   #  if [[ "${ID}" == "centos" ||  "${ID}" == "ol" ]]; then
