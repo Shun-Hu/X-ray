@@ -187,11 +187,11 @@ function dependency_install() {
   ${INS} systemd
   judge "安装/升级 systemd"
   
-  ${INS} at
-  judge "安装 at"
+#   ${INS} at
+#   judge "安装 at"
   
-  ${INS} atd
-  judge "安装 atd"
+#   ${INS} atd
+#   judge "安装 atd"
 
   # Nginx 后置 无需编译 不再需要
   #  if [[ "${ID}" == "centos" ||  "${ID}" == "ol" ]]; then
